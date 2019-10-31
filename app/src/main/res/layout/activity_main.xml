@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/btn"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:text="home"
+        android:layout_marginTop="50dp"
+        android:onClick="onClick"
+        />
+
+    <Button
+        android:id="@+id/btnWhat"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:text="what"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="5dp"
+        android:layout_toRightOf="@id/btn"
+        android:onClick="onClick"
+        />
+
+    <Button
+        android:id="@+id/btnWhere"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:text="where"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="5dp"
+        android:layout_toRightOf="@id/btnWhat"
+        android:onClick="onClick"
+        />
+
+    <Button
+        android:id="@+id/btnWhen"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:text="when"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="5dp"
+        android:layout_toRightOf="@id/btnWhere"
+        android:onClick="onClick"
+        />
+
+    <Button
+        android:id="@+id/btnFAQ"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:text="faq"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="5dp"
+        android:layout_toRightOf="@id/btnWhen"
+        android:onClick="onClick"
+        />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/btn">
+
+        <TextView
+            android:id="@+id/tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Loading..."
+            android:layout_marginTop="30dp"
+            android:textSize="18sp"
+            />
+    </ScrollView>
+
+
+</RelativeLayout>
