@@ -36,7 +36,8 @@ public class MainActivity extends AppCompatActivity {
     public void onClick(View view){
         Button clickedbtn = findViewById(view.getId());
         final String page = clickedbtn.getText().toString();
-        Toast.makeText(getBaseContext(), "Loading data from " + page, Toast.LENGTH_SHORT).show();
+        TextView textView = findViewById(R.id.tv);
+        textView.setText("Loading...");
         new DownloadTextTask().execute(page);
     }
 }
