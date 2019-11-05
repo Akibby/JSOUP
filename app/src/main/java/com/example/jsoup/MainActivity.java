@@ -10,7 +10,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
-
+//hey what up
     private final textGrabber textgrab = new textGrabber();
 
     @Override
