@@ -1,6 +1,5 @@
 package com.example.jsoup;
 
-
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -16,6 +15,8 @@ public class textGrabber {
     private String title = "";
     private double gpsX = 0.0;
     private double gpsY = 0.0;
+    private ArrayList<String> questionList = new ArrayList<String>();
+    private ArrayList<String> answerList = new ArrayList<String>();
 
     public String getTextContent(){
         return textContent;
@@ -52,8 +53,12 @@ public class textGrabber {
                         gpsX = 0.0;
                         gpsY = 0.0;
                     }
-
                 }
+            } else if (tag == "li" && curE.text().contains("A: ")) {
+                String item = curE.text();
+                String[] splitQA = item.split("A: ");
+                questionList.add(splitQA[0]);
+                questionList.add(splitQA[1]);
             } else if (curE.childNodeSize() == 0 ||
                     curE.childNodeSize() == 1 ||
                     tag == "h1" ||
@@ -70,6 +75,14 @@ public class textGrabber {
         return new double[] {gpsX, gpsY};
     }
 
+    public ArrayList<String> getQuestionList(){
+        return questionList;
+    }
+
+    public ArrayList<String> getAnswerList(){
+        return answerList;
+    }
+
     public String getWebsite(final String page){
         textContent = "Page hasn't finished loading.";
         final StringBuilder builder = new StringBuilder();
@@ -84,10 +97,6 @@ public class textGrabber {
             for (int i = 0; i < baseE.size(); i++){
                 builder.append(baseE.get(i)).append("\n\n");
             }
-
-            double coord1 = getCoords()[0];
-            double coord2 = getCoords()[1];
-            builder.append("COORDS: "+coord1 + ","+ coord2+"\n\n");
             textContent = builder.toString();
             if (textContent == ""){
                 textContent = "No content on " + page;
@@ -96,6 +105,6 @@ public class textGrabber {
             e.printStackTrace();
             textContent = "Error grabbing content on " + page;
         }
-    return textContent;
+        return textContent;
     }
 }
